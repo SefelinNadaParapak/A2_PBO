@@ -24,19 +24,19 @@ public class Main {
         ArrayList<Produk> ListProduk = new ArrayList<>();
         int id=0;
         while (true){
-            System.out.println("======DATA PRODUK IBOX======");
-            System.out.println("1. Daftar Produk Baru");
-            System.out.println("2. Lihat List Produk");
-            System.out.println("3. Ubah Data Produk");
-            System.out.println("4. Hapus Data Produk");
-            System.out.println("5. Keluar");
+            System.out.println("====== DATA PRODUK IBOX ======");
+            System.out.println("(1). Daftar Produk Baru");
+            System.out.println("(2). Lihat List Produk");
+            System.out.println("(3). Ubah Data Produk");
+            System.out.println("(4). Hapus Data Produk");
+            System.out.println("(5). Keluar");
             System.out.println("============================");
             System.out.println("Pilih Option (Angka) : ");int a=method.GetInt();
             if (a!=5){
                 if(a==1){
                     int i;
                     Produk data = new Produk ();
-                    System.out.println("====Produk IBOX====");
+                    System.out.println("==== LIST PRODUK IBOX ====");
                     data.setId(id+1);
                     System.out.print("Nama\t: ");data.setNama(input.nextLine());
                     System.out.print("Harga\t: ");data.setHarga(method.GetInt());
@@ -50,12 +50,12 @@ public class Main {
                 else if(a==3){
                     method.list_data(ListProduk);
                     
-                    System.out.println("!!Pencarian Data Produk Sesuai ID Produk!!");
+                    System.out.println("!!Diharapkan Pencarian Data Produk Sesuai ID Produk!!");
                     System.out.print(">>");int cari = method.GetInt();
                     for (int i=0;i<ListProduk.size();i++){
                         if(cari==ListProduk.get(i).getId()){
                             System.out.println("CEK ID = "+ListProduk.get(i).getId());
-                            System.out.println("===Data Sebelumnya===");
+                            System.out.println("===== Data Sebelumnya =====");
                             System.out.println("ID\t\t: "+ListProduk.get(i).getId());
                             System.out.println("Nama\t: "+ListProduk.get(i).getNama());
                             System.out.println("Ukuran\t: "+ListProduk.get(i).getUkuran());
@@ -63,7 +63,7 @@ public class Main {
                             ListProduk.remove(i);
 //                            id--;
                             //Mengisi data baru menggunakan constructor
-                            System.out.println("===Data Baru===");
+                            System.out.println("===== Data Baru =====");
                             System.out.println("ID\t\t: "+id);
                             System.out.print("Nama\t: ");String nama = input.nextLine();
                             System.out.print("Harga\t: ");int harga = method.GetInt();
@@ -81,7 +81,7 @@ public class Main {
                             ListProduk.add(data);
                         }
                     }
-                    System.out.println("===List Produk iBox===");
+                    System.out.println("==== LIST PRODUK IBOX ====");
                     System.out.println("No ID Nama\t\tUkuran\t\t\tHarga");
                     for(int i=0;i<ListProduk.size();i++){
                         System.out.println((i+1)+" "+ListProduk.get(i).getId()+" "+ListProduk.get(i).getNama()+"\t\t"+ListProduk.get(i).getUkuran()+"\t\t"+ListProduk.get(i).getHarga());
@@ -102,7 +102,7 @@ public class Main {
                     method.list_data(ListProduk);
                 }
                 else if (a==5){
-                    System.out.println("===System Shut===");
+                    System.out.println("=== System Shut ===");
                     System.exit(1);
                 }
             }
