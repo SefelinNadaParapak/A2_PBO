@@ -62,6 +62,7 @@ public class Main {
                         data.add(naungan);
                         break;
                     case 2:
+                        
                         System.out.print(" ");
                         System.out.println("====================");
                         System.out.println("** Tampilkan data **");
@@ -69,6 +70,7 @@ public class Main {
                         for (int i=0; i < data.size(); i++){
                             System.out.println((i+1) + "." + data.get(i));
                         }
+                        ksrNew.sendiri();
                         break;
                     case 3:
                         System.out.println("====================");
