@@ -1,0 +1,2 @@
+print("Homina")
+print("Ladeno")
