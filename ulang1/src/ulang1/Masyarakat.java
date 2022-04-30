@@ -1,6 +1,11 @@
 
-public class Masyarakat {
+package ulang1;
+
+public abstract class Masyarakat {
    protected String nama, alamat, laporan; 
+   protected final String daerah = "Samboja";
+   
+   public abstract void Negara();
    
    public Masyarakat(String nama,String alamat, String laporan){
        this.nama = nama;
@@ -41,5 +46,4 @@ public class Masyarakat {
        System.out.println("Pengaduan Tidak di terima");
    }
 }
-
 

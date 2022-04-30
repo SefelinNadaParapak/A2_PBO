@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package coba;
+package mencoba;
 
 /**
  *
  * @author RA
  */
-public class Coba {
+public class Mencoba {
 
     /**
      * @param args the command line arguments
