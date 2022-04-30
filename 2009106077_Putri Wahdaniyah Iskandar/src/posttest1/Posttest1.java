@@ -10,48 +10,24 @@ package posttest1;
  */
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
 
-class HomeCare{
-   private String nama;
-   private String alamat;
-   private String riwayatsakit;
-   private HomeCare data;
-   //private ArrayList<HomeCare> HomeCare = new ArrayList<HomeCare>();
-   private int num;
-   
-   HomeCare( String nama, String alamat, String riwayatsakit){
-      
-      this.nama = nama;
-      this.alamat = alamat;
-      this.riwayatsakit = riwayatsakit;
-   }
-   public String getnama(){
-      return nama;
-   }
-   public String getalamat(){
-      return alamat;
-   }
-   public String getriwayatsakit(){
-      return riwayatsakit;
-   }
-   
-   public String toString(){
-      return nama+" "+alamat+" "+riwayatsakit+" ";
-   }
 public class Posttest1 {
 
     /**
      * @param args the command line arguments
      */
+    
+    static Scanner input = new Scanner(System.in);
+    static ArrayList<HomeCare> homeCares = new ArrayList<HomeCare>();
+    static HomeCare homeCare;
+
     public static void main(String[] args) {    
-    List <HomeCare> h = new ArrayList<HomeCare>();  
-    Scanner input = new Scanner(System.in);
+    // Scanner input = new Scanner(System.in);
         int Menu;
         do{
-          System.out.println("*******************");
+          System.out.println("***");
           System.out.println("WELCOME TO HOME CARE");
-          System.out.println("*******************");
+          System.out.println("***");
           System.out.println("1. Tambah Data Pasien");
           System.out.println("2. Tampilkan Data Pasien");
           System.out.println("3. Edit Data Pasien");
@@ -91,7 +67,6 @@ public class Posttest1 {
     }
     
     public static void create_data() {
-    Scanner input = new Scanner(System.in);
     
         System.out.println("Buat Data Pasien");
         System.out.print("NAMA: ");
@@ -102,16 +77,16 @@ public class Posttest1 {
         String riwayatsakit = input.nextLine();
         System.out.print(" ");
         
-               h.add(new h(nama,alamat,riwayatsakit));
-            break;
+        homeCare = new HomeCare(nama, alamat, riwayatsakit);
+        homeCares.add(homeCare);
     }
 
     private static void read_data() {
         System.out.println("\n    Daftar Data Pasien  ");
-        System.out.println("*****************************");
+        System.out.println("*****");
         System.out.println("No  Nama \talamat \triwayatsakit");
 
-        for (HomeCare data: HomeCare){
+        for (HomeCare data: homeCares){
             System.out.println(data.getnama() + " \t " + data.getalamat() + "\t  " + data.getriwayatsakit());
         }
         System.out.println();
@@ -121,20 +96,20 @@ public class Posttest1 {
         read_data();
         System.out.println("Mengubah Data");
 
-        System.out.print("Pilih Nomor Data Pasien  : ");
-        int num = input.nextInt(); input.nextLine();
+        System.out.print("Masukkan Nama Pasien : ");
+        String nama = input.nextLine();
         boolean ubah = false;
         
-        for (HomeCare data : HomeCare) {
-            if(data.getId() == nomor) {
+        for (HomeCare data : homeCares) {
+            if(data.getnama() == nama) {
                 System.out.print("Nama  : ");
-                String nama = input.nextLine();
+                String name = input.nextLine();
                 System.out.print("Alamat :");
-                int alamat = input.nextInt();
+                String alamat = input.nextLine();
                 System.out.print("Riwayat Sakit  : ");
-                int riwayatsakit = input.nextInt(); input.nextLine();
+                String riwayatsakit = input.nextLine();
                 
-                data.setNama(nama);
+                data.setnama(name);
                 data.setalamat(alamat);
                 data.setriwayatsakit(riwayatsakit);
 
@@ -155,12 +130,13 @@ public class Posttest1 {
     private static void delete_data() {
         read_data();
         System.out.println(" Menghapus Data Pasien   ");
-        System.out.print("Masukkan Pilihan Data Pasien : ");
-        int num = input.nextInt(); input.nextLine();
+        System.out.print("Masukkan Nama Pasien : ");
+        String nama = input.nextLine();
         boolean Delete = false;
         
-        for (HomeCare data : HomeCare){
-                HomeCare.remove(data);
+        for (HomeCare data : homeCares){
+            if(data.getnama() == nama) {
+                homeCares.remove(data);
                 Delete = true;
                 break;
             }
@@ -174,12 +150,13 @@ public class Posttest1 {
             continue_input();
         }
     }
+
+
     public static void continue_input() {
         System.out.print("Klik Space Untuk Kembali Ke Menu.");
         input.nextLine();
-        
-        }
+    }
 }
-    
+
 
 
